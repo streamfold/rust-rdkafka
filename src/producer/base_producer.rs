@@ -687,7 +687,7 @@ where
                 .spawn(move || {
                     trace!("Polling thread loop started");
                     loop {
-                        producer.poll(Duration::from_millis(100));
+                        producer.poll(Duration::from_millis(1000));
                         if should_stop.load(Ordering::Relaxed) {
                             // We received nothing and the thread should
                             // stop, so break the loop.
